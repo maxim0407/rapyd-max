@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  python-app:
+    container_name: python-app
+    build: app
+    ports:
+      - "5000:5000"
+
+  nginx:
+    container_name: nginx
+    build: nginx
+    ports:
+      - "443:443"
+    depends_on:
+      - python-app
